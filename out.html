@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Information</title>
+</head>
+
+<body>
+    <div class="container text-center d-flex">
+        <div class="alert shadow-lg alert-success w-50 mx-auto my-5">
+            <div class="card-body">
+                <h5 class="card-title">Information</h5>
+                <div class="card-text mt-2">
+                    <p>Your Email Address: </p>
+                    <p id="em"></p>
+                    
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script>
+        let email = document.getElementById("em")
+        let em = localStorage.getItem("email")
+        email.innerHTML = em
+
+    </script>
+</body>
+
+</html>

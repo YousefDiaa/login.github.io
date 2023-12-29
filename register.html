@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container d-flex">
+        <div class="card shadow-lg w-50 mx-auto my-5">
+            <div class="card-body">
+                <h5 class="card-title">Register</h5>
+                <form class="card-text">
+                    <label for="name" class="form-label my-3">Name: </label>
+                    <input type="text" class="form-control" id="name">
+                    <label for="email" class="form-label my-3">Email Address: </label>
+                    <input type="email" class="form-control" id="email">
+                    <label for="pass" class="form-label my-3 d-flex justify-content-between">
+                        <span>Password:</span>
+                    
+                    </label>
+                    <input type="password" class="form-control my-3" id="pass">
+                    <p class="text-secondary">you now agree with our terms</p>
+                    <div class="d-flex justify-content-end">
+                        <a href="#" id="reg" class="btn btn-sm btn-primary">Register</a>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center" style="background-color: rgb(232, 223, 223);">
+                Aready have account? <a href="index.html">Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script>
+        const rege = /^[^@]+@[^@]+\.[^@]+$/
+            const regp = /^\S{8,24}$/
+            let name = document.getElementById("name")
+            let email = document.getElementById("email")
+            let pass = document.getElementById('pass')
+            let reg = document.getElementById('reg')
+            let alr1 = document.createElement("div")
+            let alr2 = document.createElement("div")
+            let alr3 = document.createElement("div")
+            reg.onclick = function () {
+                if(name.value == ""){
+                    alr1.classList = "alert alert-danger mt-3"
+                    alr1.innerText = "Please enter your name"
+                    name.after(alr1)
+                }else{
+                    alr1.remove()
+                }
+                if (!rege.test(email.value)) {
+                    alr2.classList = "alert alert-danger mt-3"
+                    alr2.innerText = "Please enter a valid email address"
+                    email.after(alr2)
+                } else {
+                    alr2.remove()
+                }
+                if (!regp.test(pass.value)) {
+                    alr3.classList = "alert alert-danger"
+                    alr3.innerText = "Your password must be between 8 and 24 characters."
+                    pass.after(alr3)
+                } else {
+                    alr3.remove()
+                }
+                if (rege.test(email.value) && name.value != "" && regp.test(pass.value)) {
+                    localStorage.setItem("name", name.value)
+                    localStorage.setItem("email", email.value)
+                    window.location.href = "out2.html"
+                }
+            }
+            
+
+    </script>
+</body>
+
+</html>
